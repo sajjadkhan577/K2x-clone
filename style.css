@@ -45,9 +45,15 @@ header {
 }
 
 /* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo-img {
     height: 40px;
     width: auto;
+    display: block;
 }
 
 /* Desktop Navigation */
@@ -1928,6 +1934,18 @@ footer {
 @media (max-width: 768px) {
     .desktop-nav {
         display: none;
+    }
+    
+    .logo {
+        display: flex !important;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .logo-img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .mobile-menu-toggle {
