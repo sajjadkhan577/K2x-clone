@@ -1932,6 +1932,11 @@ footer {
 
 /* ===== MOBILE RESPONSIVE STYLES ===== */
 @media (max-width: 768px) {
+    header {
+        position: relative;
+        z-index: 1000;
+    }
+    
     .desktop-nav {
         display: none;
     }
@@ -1939,13 +1944,21 @@ footer {
     .logo {
         display: flex !important;
         align-items: center;
-        z-index: 1000;
+        z-index: 1001;
+        position: relative;
     }
     
     .logo-img {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .header-container {
+        position: relative;
+        z-index: 1000;
     }
     
     .mobile-menu-toggle {
@@ -1956,6 +1969,7 @@ footer {
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 1002;
     }
     
     .hero-slider {
