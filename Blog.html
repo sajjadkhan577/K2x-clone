@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K2X TECH - AI Software Blogs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #efeaea;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Blog Page Specific Styles */
+        .blog-page {
+            padding-top: 120px;
+            min-height: calc(100vh - 400px);
+            background-color: #f8f9fa;
+        }
+
+        .blog-page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-page-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .blog-page-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid Layout */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 64, 128, 0.85);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-image {
+            height: 200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .read-post-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .read-post-btn:hover {
+            background: #e67300;
+            transform: translateY(-2px);
+        }
+
+        /* Pagination */
+        .blog-pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .pagination-numbers {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination-numbers a,
+        .pagination-numbers span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-numbers a {
+            color: var(--dark);
+            background: white;
+            border: 1px solid #e0e0e0;
+        }
+
+        .pagination-numbers a:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .pagination-numbers span.current {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .page-arrow {
+            padding: 0 15px !important;
+        }
+
+        /* Remove old pagination arrow styles if they exist */
+        .pagination-arrow {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-page-header {
+                padding: 40px 0;
+            }
+
+            .blog-page-title {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .blog-pagination {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-page-title {
+                font-size: 1.8rem;
+            }
+
+            .blog-page-description {
+                font-size: 1.1rem;
+            }
+
+            .blog-content {
+                padding: 20px;
+            }
+
+            .blog-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* From our blog header style */
+        .from-our-blog {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .from-our-blog h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .from-our-blog p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="K2X-logo.png" alt="K2X Tech" class="logo-img">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#services">Services <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="submenu.html#ai-machine-learning">AI/ML</a></li>
+                            <li><a href="submenu.html#web-development">Web Development</a></li>
+                            <li><a href="submenu.html#mobile-app-development">Mobile App Development</a></li>
+                            <li><a href="submenu.html#ux-ui-design">UX/UI Design</a></li>
+                            <li><a href="submenu.html#data-engineering">Data Engineering</a></li>
+                            <li><a href="submenu.html#data-analytics">Data Analytics</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html" class="active">Blogs</a></li>
+                    <li><a href="index.html#contact" class="contact-btn">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <div class="hamburger" id="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-container">
+                <div class="mobile-menu-header">
+                    <div class="mobile-logo">
+                        <img src="K2X-logo.png" alt="K2X Tech">
+                    </div>
+                </div>
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="mobile-menu-item has-submenu">
+                            <a href="index.html#services" class="submenu-toggle">
+                                Services <span class="submenu-arrow">+</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="submenu.html#ai-machine-learning">AI/ML</a></li>
+                                <li><a href="submenu.html#web-development">Web Development</a></li>
+                                <li><a href="submenu.html#mobile-app-development">Mobile App Development</a></li>
+                                <li><a href="submenu.html#ux-ui-design">UX/UI Design</a></li>
+                                <li><a href="submenu.html#data-engineering">Data Engineering</a></li>
+                                <li><a href="submenu.html#data-analytics">Data Analytics</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html" class="active">Blogs</a></li>
+                        <li><a href="index.html#contact" class="mobile-contact-btn">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Page Content -->
+    <main class="blog-page">
+        <!-- Blog Page Header -->
+        <div class="blog-page-header">
+            <div class="container">
+                <h1 class="blog-page-title">From our blog</h1>
+                <p class="blog-page-description">Here You can Find Informative Blogs</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">AI</span>
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Building AI Applications">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Building AI Applications With Problem First Approach</h3>
+                        <p class="blog-excerpt">Learn how to approach AI development by focusing on real-world problems
+                            first, then finding the right AI solutions to address them effectively.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-ai-problem-first.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Mobile</span>
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Concept vs Usability Testing">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Concept vs Usability Testing: Key Differences Explained</h3>
+                        <p class="blog-excerpt">Understanding the distinction between concept testing and usability
+                            testing is crucial for product development. Learn when to use each method.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-concept-testing.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Mobile</span>
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Startup UX Design">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Startup UX Design: The Key to Product Success</h3>
+                        <p class="blog-excerpt">Why great startups start with outstanding UX design. Learn how user
+                            experience can make or break your product in competitive markets.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-startup-ux.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Data</span>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Ecommerce Business Intelligence">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Ecommerce Business Intelligence: Turning Data into Smarter Decisions</h3>
+                        <p class="blog-excerpt">How ecommerce businesses can leverage data analytics and BI tools to
+                            gain insights, optimize operations, and drive sales growth.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-ecommerce-bi.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Mobile</span>
+                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="App Store Optimization">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">App Store Optimization for Mobile Strategy | K2X Tech</h3>
+                        <p class="blog-excerpt">Master the art of ASO to improve your app's visibility, increase
+                            downloads, and boost your mobile app's success in crowded marketplaces.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-app-store-optimization.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Data</span>
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="AI/ML in Business">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">AI/ML in Business: Use Cases, Benefits & Outlook 2025</h3>
+                        <p class="blog-excerpt">Explore practical AI/ML applications across industries, their business
+                            benefits, and what the future holds for AI in enterprise environments.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-ai-ml-business.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 7 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Mobile</span>
+                        <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="AI Agents and Business">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">AI Agents and Business Productivity in 2025</h3>
+                        <p class="blog-excerpt">How AI agents are revolutionizing business operations, automating
+                            complex tasks, and scaling business implementation for the future.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-ai-agents.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 8 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Mobile</span>
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Scalable Web Tech Stack">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Scalable Web Tech Stack | Choosing the Right Stack for Your App</h3>
+                        <p class="blog-excerpt">Guidelines for selecting the optimal technology stack that ensures
+                            scalability, performance, and maintainability for your web applications.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-scalable-tech-stack.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 9 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category">Mobile</span>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="AI in Data Analytics">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">AI in Data Analytics: A New Era of Decision-Making</h3>
+                        <p class="blog-excerpt">How AI is transforming data analytics processes and enabling smarter,
+                            faster, and more accurate business decision-making.</p>
+                        <div class="blog-meta">
+                            <a href="blog-post-ai-data-analytics.html" class="read-post-btn">Read Post »</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="blog-pagination">
+                <div class="pagination-numbers">
+                    <a href="#" class="page-arrow">←</a>
+                    <span class="current">1</span>
+                    <a href="blog-page2.html">2</a>
+                    <a href="blog-page3.html">3</a>
+                    <a href="blog-page2.html" class="page-arrow">→</a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-col">
+                            <h3>K2X Technology</h3>
+                            <p>We deliver innovative technology solutions that help businesses thrive in the digital
+                                age. Our team of experts is dedicated to providing exceptional service and results.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Quick Links</h3>
+                            <ul class="footer-links">
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#services">Services</a></li>
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#projects">Projects</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Our Services</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Software Development</a></li>
+                                <li><a href="#">Cloud Solutions</a></li>
+                                <li><a href="#">Cybersecurity</a></li>
+                                <li><a href="#">Mobile Apps</a></li>
+                                <li><a href="#">IT Consulting</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Newsletter</h3>
+                            <p>Subscribe to our newsletter to receive updates on the latest technology trends and
+                                insights.</p>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" class="newsletter-input">
+                                <button class="btn newsletter-btn">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; 2023 K2X Technology. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

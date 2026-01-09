@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at K2X Tech | Join Our Innovative Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Careers Page Specific Styles */
+        .careers-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+            color: white;
+            padding: 100px 0 80px;
+            margin-top: 70px; /* Offset for fixed header */
+            text-align: center;
+        }
+        
+        .careers-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .careers-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .careers-content {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--dark);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 5px solid var(--accent);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .benefit-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .cta-section {
+            background-color: var(--light);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-section h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .careers-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .careers-hero {
+                padding: 80px 0 60px;
+            }
+            
+            .careers-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .benefit-card {
+                padding: 30px 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .careers-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation (Same as your main site) -->
+    <header>
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="K2X-logo.png" alt="K2X Tech" class="logo-img">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#services">Services <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#ai-ml">AI/ML</a></li>
+                            <li><a href="index.html#web-development">Web Development</a></li>
+                            <li><a href="index.html#mobile-app">Mobile App Development</a></li>
+                            <li><a href="index.html#ux-ui">UX/UI Design</a></li>
+                            <li><a href="index.html#data-engineering">Data Engineering</a></li>
+                            <li><a href="index.html#data-analytics">Data Analytics</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="careers.html" class="active">Careers</a></li>
+                    <li><a href="blog.html">Blogs</a></li>
+                    <li><a href="index.html#contact" class="contact-btn">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <div class="hamburger" id="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-container">
+                <div class="mobile-menu-header">
+                    <div class="mobile-logo">
+                        <img src="K2X-logo.png" alt="K2X Tech">
+                    </div>
+                </div>
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="mobile-menu-item has-submenu">
+                            <a href="index.html#services" class="submenu-toggle">
+                                Services <span class="submenu-arrow">+</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="index.html#ai-ml">AI/ML</a></li>
+                                <li><a href="index.html#web-development">Web Development</a></li>
+                                <li><a href="index.html#mobile-app">Mobile App Development</a></li>
+                                <li><a href="index.html#ux-ui">UX/UI Design</a></li>
+                                <li><a href="index.html#data-engineering">Data Engineering</a></li>
+                                <li><a href="index.html#data-analytics">Data Analytics</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="careers.html" class="active">Careers</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                        <li><a href="index.html#contact" class="mobile-contact-btn">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Careers Hero Section -->
+    <section class="careers-hero">
+        <div class="container">
+            <h1>Careers</h1>
+            <p>Careers at K2X Tech offer chances to work on AI and software projects. Join Careers at K2X Tech to grow and make an impact.</p>
+        </div>
+    </section>
+
+    <!-- Main Careers Content -->
+    <section class="careers-content">
+        <div class="container">
+            <!-- Intro Section -->
+            <div class="section-title">
+                <h2>We’re always searching for amazing people to join our team</h2>
+            </div>
+            <p class="intro-text">
+                At our company, we believe that amazing people make all the difference. That’s why we’re continuously searching for exceptional individuals to join our team. If you’re driven, talented, and eager to contribute to meaningful work, seize this opportunity.
+            </p>
+            
+            <!-- Why Choose K2X Tech -->
+            <div class="section-title">
+                <h2>Why Choose Careers at K2X Tech?</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card">
+                    <h4>Collaborative environment</h4>
+                    <p>At K2X Tech, collaboration and teamwork are at the heart of everything we do. Joining our team means working alongside talented individuals passionate about their craft. Together, you will collaborate on exciting projects, exchange ideas freely, and learn from each other. This creates a supportive and inspiring environment that fosters both personal and professional growth.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="benefit-card">
+                    <h4>Growth opportunity</h4>
+                    <p>When you join us, you gain access to numerous growth and development opportunities. We are committed to cultivating a culture of continuous learning by offering training programs, mentorship, and challenging projects. These resources will enhance your skills and help advance your career steadily.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="benefit-card">
+                    <h4>Work-life balance</h4>
+                    <p>Recognizing the importance of a healthy work-life balance, we strive to provide a flexible and supportive workplace. Our benefits, resources, and policies promote well-being, enabling you to excel in both your professional and personal life. Consequently, you receive the support needed to thrive in all areas.</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="benefit-card">
+                    <h4>Impactful work</h4>
+                    <p>Every team member’s contribution at K2X Tech makes a difference. You will work on meaningful projects that influence the industry and beyond. Whether developing innovative solutions, improving user experiences, or solving complex challenges, your efforts will be valued and recognized.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Ready to Join Our Team?</h3>
+            <p>If you're passionate about technology and want to work on cutting-edge projects with a talented team, we'd love to hear from you.</p>
+            <a href="index.html#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>K2X Technology</h3>
+                    <p>We deliver innovative technology solutions that help businesses thrive in the digital age. Our team of experts is dedicated to providing exceptional service and results.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">AI/ML Development</a></li>
+                        <li><a href="index.html#services">Web Development</a></li>
+                        <li><a href="index.html#services">Mobile Apps</a></li>
+                        <li><a href="index.html#services">Data Analytics</a></li>
+                        <li><a href="index.html#services">UX/UI Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on the latest technology trends and insights.</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="btn newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 K2X Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

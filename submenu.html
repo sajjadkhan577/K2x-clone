@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - K2X TECH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Services Page Specific Styles */
+        .services-page {
+            padding-top: 120px;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        
+        .services-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .services-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .services-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Fixed Navigation Bar */
+        .services-nav-fixed {
+            position: sticky;
+            top: 80px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            margin: 30px auto 50px;
+            max-width: 1200px;
+        }
+        
+        .services-nav-fixed .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .service-nav-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .service-nav-btn:hover,
+        .service-nav-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.2);
+        }
+        
+        /* Service Sections */
+        .service-section {
+            scroll-margin-top: 150px;
+            margin-bottom: 80px;
+            padding-top: 40px;
+        }
+        
+        /* AI/ML Section - Matching Screenshot */
+        .ai-ml-section {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            margin-bottom: 60px;
+        }
+        
+        .section-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .section-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Clients Section */
+        .clients-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .client-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .client-name {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .client-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Expertise Section */
+        .expertise-section {
+            margin-bottom: 80px;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .expertise-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expertise-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .expertise-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .expertise-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .expertise-description {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Products Section */
+        .products-section {
+            margin-bottom: 80px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .product-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .product-name {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            margin-bottom: 80px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            border-right: 4px solid var(--accent);
+        }
+        
+        .testimonial-text {
+            color: #666;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-position {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Other Services Sections */
+        .service-content {
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            margin-bottom: 60px;
+        }
+        
+        .service-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .service-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .service-features {
+            margin: 40px 0;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 15px;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .service-cta {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .service-cta .btn {
+            background: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+        }
+        
+        .service-cta .btn:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Service Highlight */
+        .service-highlight {
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.05) 0%, rgba(0, 168, 232, 0.05) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .services-title {
+                font-size: 2.5rem;
+            }
+            
+            .expertise-grid,
+            .products-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            
+            .service-content,
+            .ai-ml-section {
+                padding: 40px;
+            }
+            
+            .services-nav-fixed {
+                top: 70px;
+                padding: 15px;
+            }
+            
+            .service-section {
+                scroll-margin-top: 130px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-header {
+                padding: 60px 0;
+            }
+            
+            .services-title {
+                font-size: 2.2rem;
+            }
+            
+            .services-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .services-nav-fixed .nav-container {
+                gap: 10px;
+            }
+            
+            .service-nav-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .expertise-card,
+            .product-card,
+            .testimonial-card {
+                padding: 25px;
+            }
+            
+            .service-content,
+            .ai-ml-section {
+                padding: 30px;
+            }
+            
+            .service-content h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .services-title {
+                font-size: 2rem;
+            }
+            
+            .services-nav-fixed .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .service-nav-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .section-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .expertise-grid,
+            .products-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-content,
+            .ai-ml-section {
+                padding: 25px;
+            }
+            
+            .service-section {
+                scroll-margin-top: 160px;
+            }
+        }
+        
+        /* Animation for active section */
+        @keyframes highlight {
+            0% { background-color: transparent; }
+            50% { background-color: rgba(0, 86, 179, 0.05); }
+            100% { background-color: transparent; }
+        }
+        
+        .service-section:target {
+            animation: highlight 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="K2X-logo.png" alt="K2X Tech" class="logo-img">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="submenu.html" class="active">Services <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#ai-machine-learning">AI/ML</a></li>
+                            <li><a href="#web-development">Web Development</a></li>
+                            <li><a href="#mobile-app-development">Mobile App Development</a></li>
+                            <li><a href="#ux-ui-design">UX/UI Design</a></li>
+                            <li><a href="#data-engineering">Data Engineering</a></li>
+                            <li><a href="#data-analytics">Data Analytics</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html">Blogs</a></li>
+                    <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <div class="hamburger" id="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-container">
+                <div class="mobile-menu-header">
+                    <div class="mobile-logo">
+                        <img src="K2X-logo.png" alt="K2X Tech">
+                    </div>
+                </div>
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="mobile-menu-item has-submenu">
+                            <a href="submenu.html" class="submenu-toggle active">
+                                Services <span class="submenu-arrow">+</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#ai-machine-learning">AI/ML</a></li>
+                                <li><a href="#web-development">Web Development</a></li>
+                                <li><a href="#mobile-app-development">Mobile App Development</a></li>
+                                <li><a href="#ux-ui-design">UX/UI Design</a></li>
+                                <li><a href="#data-engineering">Data Engineering</a></li>
+                                <li><a href="#data-analytics">Data Analytics</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                        <li><a href="contact.html" class="mobile-contact-btn">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Page Content -->
+    <main class="services-page">
+        <!-- Services Header -->
+        <div class="services-header">
+            <div class="container">
+                <h1 class="services-title">Our Services</h1>
+                <p class="services-subtitle">Comprehensive technology solutions to transform your business and drive digital innovation.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Fixed Navigation Bar -->
+            <div class="services-nav-fixed">
+                <div class="nav-container">
+                    <a href="#ai-machine-learning" class="service-nav-btn">AI & Machine Learning</a>
+                    <a href="#web-development" class="service-nav-btn">Web Development</a>
+                    <a href="#mobile-app-development" class="service-nav-btn">Mobile App Development</a>
+                    <a href="#ux-ui-design" class="service-nav-btn">UX/UI Design</a>
+                    <a href="#data-engineering" class="service-nav-btn">Data Engineering</a>
+                    <a href="#data-analytics" class="service-nav-btn">Data Analytics</a>
+                </div>
+            </div>
+
+            <!-- AI/ML Section -->
+            <section id="ai-machine-learning" class="service-section ai-ml-section">
+                <!-- Hero Section -->
+                <div class="section-hero">
+                    <h1>AI and Machine Learning Services to Transform Your Business</h1>
+                    <p>Leverage cutting-edge AI and ML technologies to drive innovation, optimize operations, and gain competitive advantage.</p>
+                </div>
+
+                <!-- Clients Section -->
+                <div class="clients-section">
+                    <div class="section-title">
+                        <h2>Clients</h2>
+                    </div>
+                    <div class="clients-grid">
+                        <div class="client-card">
+                            <h3 class="client-name">Sustainable</h3>
+                            <p class="client-description">Forcogatly implementing AI-driven sustainability solutions for environmental impact reduction.</p>
+                        </div>
+                        <div class="client-card">
+                            <h3 class="client-name">Yeastward</h3>
+                            <p class="client-description">Biotechnology firm leveraging AI for yeast strain optimization and fermentation process improvement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expertise Section -->
+                <div class="expertise-section">
+                    <div class="section-title">
+                        <h2>Our Expertise in AI and Machine Learning</h2>
+                    </div>
+                    <div class="expertise-grid">
+                        <div class="expertise-card">
+                            <div class="expertise-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="expertise-title">Predictive Analysis</h3>
+                            <p class="expertise-description">Machine learning can reduce cognitive complexity, improve quality, enhance performance, and optimize outcomes through accurate forecasting and pattern recognition.</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="expertise-title">Business Intelligence</h3>
+                            <p class="expertise-description">AI has significant impact on business intelligence growth, transforming data analytics across multiple sectors for smarter decision-making.</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="expertise-title">MLP Apps</h3>
+                            <p class="expertise-description">Deep learning continues to be crucial in AI engineering, solving complex problems through multi-layer perceptron architectures efficiently.</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="expertise-title">Generative AI Apps</h3>
+                            <p class="expertise-description">Research focuses on data development, providing comprehensive frameworks for deep learning that enable AI systems to build and develop innovative solutions.</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3 class="expertise-title">Computer Vision Apps</h3>
+                            <p class="expertise-description">Traditional vision aspects enhanced through computer vision analytics with additional tools for text generation, language analysis, clustering, and operational efficiency.</p>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="expertise-title">Location AI Systems</h3>
+                            <p class="expertise-description">We monitor operational gaps using AI-powered safety, visual analytics, and computer vision technologies for enhanced location intelligence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div class="products-section">
+                    <div class="section-title">
+                        <h2>Products</h2>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <h3 class="product-name">BMI AI</h3>
+                            <p class="product-description">Can be achieved with NDA International Centers for Smart Systems or AI-Assisted Robotic Reporting System significantly increasing efficiency while reducing costs. Aligned with our strategic goals.</p>
+                        </div>
+                        <div class="product-card">
+                            <h3 class="product-name">NVIDIA</h3>
+                            <p class="product-description">Enhanced Integrated Image Coding and Beyond AI-assisted remote resource management designed for the modern enterprise. Leveraging latest AI advancements for optimal performance.</p>
+                        </div>
+                        <div class="product-card">
+                            <h3 class="product-name">Finnsafety</h3>
+                            <p class="product-description">Single positive analytics platform for hospitals, administration, education, and services with technology results that are scalable and resilient through AI integration.</p>
+                        </div>
+                        <div class="product-card">
+                            <h3 class="product-name">ECONAS DE Souley Tool</h3>
+                            <p class="product-description">Implementing web-based and NDA International Centers for Smart Systems and AI-Assisted Robotic Reporting System significantly increasing operational efficiency.</p>
+                        </div>
+                        <div class="product-card">
+                            <h3 class="product-name">Großfurt</h3>
+                            <p class="product-description">ICT platform with latest Großfurt AI data capabilities providing improved experience mapping through tailored AI solutions for enterprise clients.</p>
+                        </div>
+                        <div class="product-card">
+                            <h3 class="product-name">Electronic Monitoring System</h3>
+                            <p class="product-description">Platform for higher power monitoring, mobile monitoring, using Power & Assistance for devices with real-time analytics and reporting capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials Section -->
+                <div class="testimonials-section">
+                    <div class="section-title">
+                        <h2>Testimonials</h2>
+                    </div>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"K2X Tech transformed our analytics capabilities with their AI solutions, delivering insights we never thought possible."</p>
+                            <div class="testimonial-author">CEO at Analyze File Analytics LLC</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Their machine learning implementation helped us reduce operational costs by 40% while improving accuracy significantly."</p>
+                            <div class="testimonial-author">Display Display, Dollar, UK, Government</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-cta">
+                    <a href="contact.html" class="btn">Start Your AI/ML Project</a>
+                </div>
+            </section>
+
+            <!-- Web Development Section -->
+            <section id="web-development" class="service-section">
+                <div class="service-content">
+                    <h2>Web Development Services</h2>
+                    <p>We create responsive, high-performance websites and web applications that engage your audience and drive business growth. Our web development solutions are tailored to meet your specific business needs.</p>
+                    
+                    <div class="service-highlight">
+                        <h3>Why Choose Our Web Development Services?</h3>
+                        <p>With expertise in modern frameworks and technologies, we deliver scalable, secure, and high-performing web solutions that align with your business objectives and user needs.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Our Web Development Expertise</h3>
+                        <ul class="feature-list">
+                            <li>Custom Web Application Development</li>
+                            <li>E-commerce Solutions & Platforms</li>
+                            <li>Progressive Web Apps (PWA)</li>
+                            <li>Content Management Systems (CMS)</li>
+                            <li>API Development & Integration</li>
+                            <li>Website Maintenance & Support</li>
+                            <li>Performance Optimization</li>
+                            <li>Security Implementation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn">Start Your Web Project</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mobile App Development Section -->
+            <section id="mobile-app-development" class="service-section">
+                <div class="service-content">
+                    <h2>Mobile App Development Services</h2>
+                    <p>Deliver seamless mobile experiences across iOS and Android platforms that increase customer engagement and brand loyalty. We build apps that users love and businesses trust.</p>
+                    
+                    <div class="service-highlight">
+                        <h3>Native & Cross-Platform Solutions</h3>
+                        <p>We develop both native applications for optimal performance and cross-platform solutions for cost-effective deployment across multiple platforms.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Our Mobile Development Services</h3>
+                        <ul class="feature-list">
+                            <li>Native iOS & Android Development</li>
+                            <li>Cross-platform App Development</li>
+                            <li>UI/UX Design for Mobile</li>
+                            <li>App Store Optimization & Deployment</li>
+                            <li>Mobile API Development</li>
+                            <li>App Maintenance & Updates</li>
+                            <li>Enterprise Mobile Solutions</li>
+                            <li>IoT & Wearable App Integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn">Build Your Mobile App</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- UX/UI Design Section -->
+            <section id="ux-ui-design" class="service-section">
+                <div class="service-content">
+                    <h2>UX/UI Design Services</h2>
+                    <p>Design intuitive interfaces that provide smooth, enjoyable user experiences from start to finish. We combine aesthetics with functionality to create designs that convert visitors into customers.</p>
+                    
+                    <div class="service-highlight">
+                        <h3>User-Centered Design Approach</h3>
+                        <p>Our design process focuses on understanding user behaviors, needs, and motivations through observation, task analysis, and feedback to create exceptional user experiences.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Our Design Process</h3>
+                        <ul class="feature-list">
+                            <li>User Research & Persona Development</li>
+                            <li>Wireframing & Prototyping</li>
+                            <li>Visual Design & Brand Integration</li>
+                            <li>Interactive Prototypes</li>
+                            <li>Usability Testing</li>
+                            <li>Design Systems & Style Guides</li>
+                            <li>Responsive Design Implementation</li>
+                            <li>Accessibility Compliance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn">Design Your Experience</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Engineering Section -->
+            <section id="data-engineering" class="service-section">
+                <div class="service-content">
+                    <h2>Data Engineering Solutions</h2>
+                    <p>Unlock the full potential of your data with scalable infrastructure and streamlined pipelines. We build robust data architectures that support your business intelligence and analytics needs.</p>
+                    
+                    <div class="service-highlight">
+                        <h3>Scalable Data Infrastructure</h3>
+                        <p>We design and implement data pipelines that scale with your business, ensuring data availability, reliability, and quality for decision-making.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Our Data Engineering Services</h3>
+                        <ul class="feature-list">
+                            <li>Data Pipeline Architecture</li>
+                            <li>ETL/ELT Development</li>
+                            <li>Data Warehouse Design</li>
+                            <li>Big Data Solutions</li>
+                            <li>Cloud Data Migration</li>
+                            <li>Real-time Data Processing</li>
+                            <li>Data Quality Management</li>
+                            <li>Data Governance Implementation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn">Engineer Your Data Solution</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Analytics Section -->
+            <section id="data-analytics" class="service-section">
+                <div class="service-content">
+                    <h2>Data Analytics Services</h2>
+                    <p>Gain valuable insights and optimize decisions through advanced analytics and real-time dashboards. Transform your raw data into actionable intelligence that drives business growth.</p>
+                    
+                    <div class="service-highlight">
+                        <h3>Actionable Business Insights</h3>
+                        <p>We help organizations make data-driven decisions by transforming complex data into clear, actionable insights through advanced analytics and visualization.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Our Analytics Capabilities</h3>
+                        <ul class="feature-list">
+                            <li>Business Intelligence Dashboards</li>
+                            <li>Predictive Analytics & Modeling</li>
+                            <li>Advanced Data Visualization</li>
+                            <li>Customer Analytics & Segmentation</li>
+                            <li>Operational Analytics</li>
+                            <li>Market Trend Analysis</li>
+                            <li>KPI Tracking & Reporting</li>
+                            <li>AI-Powered Analytics Solutions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn">Analyze Your Data</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>K2X Technology</h3>
+                    <p>We deliver innovative technology solutions that help businesses thrive in the digital age. Our team of experts is dedicated to providing exceptional service and results.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="submenu.html" class="active">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#ai-machine-learning">AI/ML Development</a></li>
+                        <li><a href="#web-development">Web Development</a></li>
+                        <li><a href="#mobile-app-development">Mobile Apps</a></li>
+                        <li><a href="#data-analytics">Data Analytics</a></li>
+                        <li><a href="#ux-ui-design">UX/UI Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on the latest technology trends and insights.</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="btn newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 K2X Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update active navigation based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.service-section');
+            const navLinks = document.querySelectorAll('.service-nav-btn');
+            
+            // Highlight active section in fixed nav
+            function updateActiveNav() {
+                let current = '';
+                const scrollPosition = window.scrollY + 200;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Smooth scroll for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL without page reload
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+            
+            // Update active nav on scroll
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Check hash on page load
+            if (window.location.hash) {
+                const targetSection = document.querySelector(window.location.hash);
+                if (targetSection) {
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
+            
+            // Update active nav on page load
+            updateActiveNav();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

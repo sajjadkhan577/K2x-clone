@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K2X TECH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Header & Navigation -->
+<header>
+    <div class="container header-container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <img src="K2X-logo.png" alt="K2X Tech" class="logo-img">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                 <li class="has-dropdown">
+            <a href="#services">Services <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="submenu.html#ai-machine-learning">AI/ML</a></li>
+                <li><a href="submenu.html#web-development">Web Development</a></li>
+                <li><a href="submenu.html#mobile-app-development">Mobile App Development</a></li>
+                <li><a href="submenu.html#ux-ui-design">UX/UI Design</a></li>
+                <li><a href="submenu.html#data-engineering">Data Engineering</a></li>
+                <li><a href="submenu.html#data-analytics">Data Analytics</a></li>
+            </ul>
+        </li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="Blog.html">Blogs</a></li>
+                <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Mobile Menu Toggle - Hamburger Icon -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <div class="hamburger" id="hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </button>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">
+                    <img src="K2X-logo.png" alt="K2X Tech">
+                </div>
+                <!-- Close button removed - using hamburger transform instead -->
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                     <!-- Services with accordion for mobile -->
+        <li class="mobile-menu-item has-submenu">
+            <a href="#services" class="submenu-toggle">
+                Services <span class="submenu-arrow">+</span>
+            </a>
+            <ul class="submenu">
+                <li><a href="submenu.html#ai-machine-learning">AI/ML</a></li>
+                <li><a href="submenu.html#web-development">Web Development</a></li>
+                <li><a href="submenu.html#mobile-app-development">Mobile App Development</a></li>
+                <li><a href="submenu.html#ux-ui-design">UX/UI Design</a></li>
+                <li><a href="submenu.html#data-engineering">Data Engineering</a></li>
+                <li><a href="submenu.html#data-analytics">Data Analytics</a></li>
+            </ul>
+        </li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="Blog.html">Blogs</a></li>
+                    <li><a href="#contact" class="mobile-contact-btn">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-footer">
+                <div class="mobile-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="mobile-copyright">© 2023 K2X Technology</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Slider Section -->
+<section class="hero-slider" id="home">
+    <!-- Slide 1 -->
+    <div class="slide active" id="slide1">
+        <div class="slide-content">
+            <div class="slide-text">
+                <h1>Your product partner for tackling your digital frontier</h1>
+                <a href="contact.html" class="btn">Develop With Us</a>
+            </div>
+            <div class="slide-image">
+                <img src="slide 1.png" alt="Your product partner for tackling your digital frontier">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 2 -->
+    <div class="slide" id="slide2">
+        <div class="slide-content full-image">
+            <div class="slide-text">
+                <h1>Unlock the power of AI with us</h1>
+                <a href="#services" class="btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slider Controls -->
+    <div class="slider-controls">
+        <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+        <div class="slide-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+        </div>
+        <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</section>
+<!-- Trusted Clients Section -->
+<section class="clients-section section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Trusted Clients</h2>
+            
+        </div>
+        
+        <div class="clients-carousel-container">
+            <div class="clients-carousel-track">
+                <!-- First set of logos -->
+                <div class="client-logo-item">
+                    <img src="analyze.png" alt="analyze">
+                </div>
+                <div class="client-logo-item">
+                    <img src="ct coating.png" alt="CT coating">
+                </div>
+                <div class="client-logo-item">
+                    <img src="dgispr.png" alt="dgispr">
+                </div>
+                <div class="client-logo-item">
+                    <img src="drip.png" alt="drip">
+                </div>
+                <div class="client-logo-item">
+                    <img src="easa.png" alt="EASA">
+                </div>
+                <div class="client-logo-item">
+                    <img src="ecowas.png" alt="ECOWAS CEDEAO">
+                </div>
+                <div class="client-logo-item">
+                    <img src="fit.png" alt="FIT">
+                </div>
+                <div class="client-logo-item">
+                    <img src="harbor.png" alt="harbor">
+                </div>
+                <div class="client-logo-item">
+                    <img src="indiscan.png" alt="indiscan">
+                </div>
+                <div class="client-logo-item">
+                    <img src="it board.png" alt="IT Board">
+                </div>
+                <div class="client-logo-item">
+                    <img src="ntu.png" alt="NTU">
+                </div>
+                
+                <!-- Duplicate set for seamless loop -->
+                <div class="client-logo-item">
+                    <img src="analyze.png" alt="analyze">
+                </div>
+                <div class="client-logo-item">
+                    <img src="ct coating.png" alt="CT coating">
+                </div>
+                <div class="client-logo-item">
+                    <img src="dgispr.png" alt="dgispr">
+                </div>
+                <div class="client-logo-item">
+                    <img src="drip.png" alt="drip">
+                </div>
+                <div class="client-logo-item">
+                    <img src="easa.png" alt="EASA">
+                </div>
+                <div class="client-logo-item">
+                    <img src="ecowas.png" alt="ECOWAS CEDEAO">
+                </div>
+                <div class="client-logo-item">
+                    <img src="fit.png" alt="FIT">
+                </div>
+                <div class="client-logo-item">
+                    <img src="harbor.png" alt="harbor">
+                </div>
+                <div class="client-logo-item">
+                    <img src="indiscan.png" alt="indiscan">
+                </div>
+                <div class="client-logo-item">
+                    <img src="it board.png" alt="IT Board">
+                </div>
+                <div class="client-logo-item">
+                    <img src="ntu.png" alt="NTU">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ai-section section">
+    <div class="container">
+        <div class="ai-content">
+            <div class="ai-text">
+                <h2>Leading AI-Powered Software Development Company</h2>
+                <p><strong>AI software development</strong> is at the core of what K2X Tech offers. We specialize in creating intelligent, scalable digital solutions—from AI-powered applications and data analytics to mobile apps and web platforms—tailored to meet your business needs and drive growth in today's fast-paced digital landscape.</p>
+            </div>
+            <div class="ai-image">
+                <img src="leading ai power.png" alt="AI Software Development">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What We Offer Section -->
+<section class="services-offer-section section">
+    <div class="container">
+        <div class="section-title">
+            <h2>What We Offer</h2>
+            <p>We combine strategy, design, and technology to craft custom software solutions that drive measurable results.</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Card 1 -->
+            <div class="service-card-clickable">
+                <div class="service-icon">🤖</div>
+                <h3>AI/Machine Learning</h3>
+                <p>Automatic workflows, uncover actionable insights, and accelerate innovation with our AI-powered business applications.</p>
+                <a href="#" class="service-link">Learn More →</a>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="service-card-clickable">
+                <div class="service-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>Create responsive, high-performance websites that engage your audience and boost conversions.</p>
+                <a href="#" class="service-link">Learn More →</a>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="service-card-clickable">
+                <div class="service-icon">📱</div>
+                <h3>Mobile App Development</h3>
+                <p>Deliver seamless mobile experiences that increase customer engagement and brand loyalty.</p>
+                <a href="#" class="service-link">Learn More →</a>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="service-card-clickable">
+                <div class="service-icon">🎨</div>
+                <h3>UX/UI Design</h3>
+                <p>Design intuitive interfaces that provide smooth, enjoyable user experiences from start to finish.</p>
+                <a href="#" class="service-link">Learn More →</a>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="service-card-clickable">
+                <div class="service-icon">⚙️</div>
+                <h3>Data Engineering</h3>
+                <p>Unlock the full potential of your data with scalable infrastructure and streamlined pipelines.</p>
+                <a href="#" class="service-link">Learn More →</a>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="service-card-clickable">
+                <div class="service-icon">📊</div>
+                <h3>Data Analytics</h3>
+                <p>Gain valuable insights and optimize decisions through advanced analytics and real-time dashboards.</p>
+                <a href="#" class="service-link">Learn More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Our Tech Stack Section -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Tech Stack</h2>
+        </div>
+        
+        <div class="tech-stack-logos">
+            <!-- Row 1 -->
+            <div class="tech-logo-row">
+                <div class="tech-logo-item">
+                    <img src="React-Native.png" alt="React">
+                </div>
+                <div class="tech-logo-item">
+                    <img src="TypeScript.png" alt="TypeScript">
+                </div>
+                <div class="tech-logo-item">
+                    <img src="sequilized.png" alt="sequilized">
+                </div>
+                <div class="tech-logo-item">
+                    <img src="UX-Design-for-Mobilepp-Development-3.png" alt="Figma">
+                </div>
+                 <div class="tech-logo-row">
+                <div class="tech-logo-item">
+                    <img src="UX-Design-for-Mobilepp-Development-2.png" alt="Adobe XD">
+                </div>
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="tech-logo-row">
+                <div class="tech-logo-item">
+                    <img src="UX-Design-for-Mobilepp-Development-1.png" alt="Sketch">
+                </div>
+                <div class="tech-logo-item">
+                    <img src="UX-Design-for-Mobilepp-Development.png" alt="Next">
+                </div>
+                <div class="tech-logo-item">
+                    <img src="VMware.png" alt="VMware">
+                </div>
+                <div class="tech-logo-item">
+                    <img src="UX-Design-for-Mobilepp-Development-4.png" alt="InVision">
+                </div>
+                <div class="tech-logo-item">
+                    <img src="Wordpress.png" alt="WordPress">
+                </div>
+            </div>
+    </div>
+</section>
+<!-- Blogs Section with Images -->
+<section class="section blogs-section" id="blogs">
+    <div class="container">
+        <!-- Blog Header with Explore Button -->
+        <div class="blog-header">
+            <div class="blog-title-area">
+                <h2>Blogs</h2>
+                <p>Get the latest news, tips, and analysis to stay ahead.</p>
+            </div>
+            <a href="Blog.html" class="explore-btn">Explore</a>
+        </div>
+        
+        <!-- Blog Cards with Images -->
+        <div class="blog-cards-grid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card-with-image">
+                <div class="blog-card-image">
+                    <img src="pic1.png" alt="AI Transforming Data Analytics">
+                </div>
+                <div class="blog-card-content">
+                    
+                    <h4 class="blog-card-subtitle">AI in Data Analytics: A New Era of Decision-Making</h4>
+                    <div class="blog-card-links">
+                        <a href="#" class="blog-card-link">Read Article</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Card 2 -->
+            <div class="blog-card-with-image">
+                <div class="blog-card-image">
+                    <img src="pic2.jpg" alt="Scalable Backend Architectures">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Scalable Backend Architectures for Modern Systems</h3>
+                    <div class="blog-card-divider"></div>
+                    <div class="blog-card-links">
+                        <a href="#" class="blog-card-link">Read Article</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Card 3 -->
+            <div class="blog-card-with-image">
+                <div class="blog-card-image">
+                    <img src="pic3.png" alt="TypeScript Development">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Microprocessor Architectures: RISC, CISC, ARM, RISC-V</h3>
+                    <div class="blog-card-divider"></div>
+                    <div class="blog-card-links">
+                        <a href="#" class="blog-card-link">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About K2X Technology</h2>
+                    <p>Founded in 2015, K2X Technology has been at the forefront of delivering innovative technology solutions to businesses of all sizes. Our mission is to empower organizations with technology that drives growth and efficiency.</p>
+                    <p>With a team of over 50 skilled professionals, we combine technical expertise with industry knowledge to deliver solutions that make a real impact. We believe in building long-term partnerships with our clients, working collaboratively to achieve their business objectives.</p>
+                    <p>Our approach is centered on understanding your unique challenges and opportunities, then designing and implementing solutions that deliver measurable results.</p>
+                    <a href="contact.html" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="K2X Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>250+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Team Members</p>
+                </div>
+                <div class="stat-item">
+                    <h3>8+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Satisfied Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Projects</h2>
+                <p>Take a look at some of our recent successful projects across various industries.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fintech Dashboard">
+                    </div>
+                    <div class="project-info">
+                        <h3>FinTech Analytics Dashboard</h3>
+                        <p>A comprehensive financial analytics platform for a leading investment firm, providing real-time insights and predictive analytics.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" alt="Healthcare App">
+                    </div>
+                    <div class="project-info">
+                        <h3>Healthcare Management System</h3>
+                        <p>A patient management and telemedicine platform for a network of clinics, improving patient care and operational efficiency.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>A scalable online retail platform with advanced inventory management, payment processing, and customer analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>K2X Technology</h3>
+                    <p>We deliver innovative technology solutions that help businesses thrive in the digital age. Our team of experts is dedicated to providing exceptional service and results.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Software Development</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">IT Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on the latest technology trends and insights.</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" class="newsletter-input">
+                        <button class="btn newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 K2X Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
