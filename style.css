@@ -45,15 +45,9 @@ header {
 }
 
 /* Logo */
-.logo {
-    display: flex;
-    align-items: center;
-}
-
 .logo-img {
     height: 40px;
     width: auto;
-    display: block;
 }
 
 /* Desktop Navigation */
@@ -98,7 +92,7 @@ header {
     transform: translateY(-2px);
 }
 
-/* ===== DROPDOWN ===== */
+/* ===== DROPDOWN CENTERING FIXES ===== */
 .desktop-nav .has-dropdown {
     position: relative;
 }
@@ -246,7 +240,8 @@ header {
     transform: translateY(-50%) rotate(-45deg);
 }
 
-/* ===== MOBILE MENU STYLES ===== */
+/* ===== MOBILE MENU STYLES - UPDATED ===== */
+/* Mobile Menu Overlay */
 .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -292,7 +287,7 @@ header {
     display: none;
 }
 
-/* ===== MOBILE NAVIGATION ===== */
+/* ===== MOBILE NAVIGATION - CENTERED FIX ===== */
 .mobile-nav {
     flex: 1;
     padding: 30px 0;
@@ -356,7 +351,7 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== MOBILE SUBMENU ACCORDION  ===== */
+/* ===== MOBILE SUBMENU ACCORDION - CENTERED FIX ===== */
 .mobile-nav .has-submenu {
     position: relative;
     width: 100%;
@@ -465,7 +460,7 @@ header {
     margin-top: 10px;
 }
 
-/* ===== HERO SLIDER ===== */
+/* ===== HERO SLIDER - UPDATED FOR 2 SLIDES ===== */
 .hero-slider {
     position: relative;
     height: 100vh;
@@ -556,7 +551,7 @@ header {
 
 /* Slide 2 - Full Background Image */
 #slide2 {
-    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('slide\ 2.jpg');
+    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('/images/slide\ 2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1932,33 +1927,8 @@ footer {
 
 /* ===== MOBILE RESPONSIVE STYLES ===== */
 @media (max-width: 768px) {
-    header {
-        position: relative;
-        z-index: 1000;
-    }
-    
     .desktop-nav {
         display: none;
-    }
-    
-    .logo {
-        display: flex !important;
-        align-items: center;
-        z-index: 1001;
-        position: relative;
-    }
-    
-    .logo-img {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .header-container {
-        position: relative;
-        z-index: 1000;
     }
     
     .mobile-menu-toggle {
@@ -1969,7 +1939,6 @@ footer {
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 1002;
     }
     
     .hero-slider {
