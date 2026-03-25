@@ -551,7 +551,7 @@ header {
 
 /* Slide 2 - Full Background Image */
 #slide2 {
-    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('/images/slide\ 2.jpg');
+    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('images/slide\ 2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

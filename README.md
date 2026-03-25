@@ -12,7 +12,7 @@
   </p>
 
   <h3>
-    <a href="https://sajjadkhan577.github.io/K2x-clone/">🌐 View Live Demo</a>
+    <a href="https://sajjadkhan577.github.io/k2x-ui-clone/">🌐 View Live Demo</a>
     <span> | </span>
     <a href="#-features">✨ Features</a>
     <span> | </span>
